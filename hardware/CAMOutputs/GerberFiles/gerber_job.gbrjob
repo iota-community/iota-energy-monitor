@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2020-04-27T15:03:22Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.5.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "iota-energy-monitor"
+        },
+        "Owner": "Lewis Freiberg <freiberg.lewis@gmail.com>",
+        "Size": {
+            "X": 103.216,
+            "Y": 81.872
+        }
+    }
+}
