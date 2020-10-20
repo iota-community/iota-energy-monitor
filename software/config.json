@@ -1,6 +1,8 @@
 {
-  "AP_SSID": "Potsberg",
-  "AP_PWD": "qantasisbad",
+  "AP_SSID": "WIFISSID_HERE",
+  "AP_PWD": "password_for_ssid",
   "IOTA_ENDPOINT": "cxc01.iota.cafe",
-  "IOTA_PORT": 7000
+  "IOTA_PORT": 7000,
+  "MODE": "produce",
+  "UUID": "akskasd-asdkdak-eiwe-sada"
 }

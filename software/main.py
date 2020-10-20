@@ -13,24 +13,29 @@ from libs import wifi
 from libs import emonlib
 from libs import urequests
 
-adc = machine.ADC()  # create an ADC object
+########
+## Setup Section
 
+# Setup pin for ADC coversion
+adc = machine.ADC()  # create an ADC object
+# Load up the Python Emon lib
 emon1 = emonlib.Emonlib()
+# Fetch data stored in the devices' Key/Value store
 config = kv.getAll()
 print(config)
-
+#Setup RGB LED
 rgbled.init()
 rgbled.green()
-
+# Initalise Screen
 oled = screen.init()
 
-
+# Read Current from the meter
 def getCurrent():
     print("Fetching")
     emon1.current("P16", 144.43)
     return emon1.calc_current_rms(1480)
 
-
+# Main application loop
 def main():
     while True:
         amps = getCurrent()
@@ -43,9 +48,9 @@ def main():
             oled.text("Watts: {}".format(watts), 0, 15)
 
             response = urequests.request(
-                "POST", "http://{}:{}/produce".format(config['IOTA_ENDPOINT'],
-                                                      config['IOTA_PORT']),
-                '{"uuid": "ac4a33f0-ee20-41e4-9fcd-9f91ecf77d0f","energy":' +
+                "POST", "http://{}:{}/{}".format(config['IOTA_ENDPOINT'],
+                                                      config['IOTA_PORT'], config['MODE']),
+                '{"uuid": "' + str(config['UUID']) + '","energy":' +
                 str(watts) + '}', None, {
                     "Content-Type": "application/json"
                 }).text
@@ -57,7 +62,7 @@ def main():
 
         utime.sleep_ms(10000)
 
-
+# Change boot up sequence depending on wifi setup.
 if config['AP_SSID'] == False:
     # Display instructions
     oled.fill(0)
