@@ -45,7 +45,7 @@ def main():
             response = urequests.request(
                 "POST", "http://{}:{}/produce".format(config['IOTA_ENDPOINT'],
                                                       config['IOTA_PORT']),
-                '{"uuid": "ac4a33f0-ee20-41e4-9fcd-9f91ecf77d0f","energy":' +
+                '{"uuid": "{}","energy":'.format(config['IOTA_UUID']) +
                 str(watts) + '}', None, {
                     "Content-Type": "application/json"
                 }).text

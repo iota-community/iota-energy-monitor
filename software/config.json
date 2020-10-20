@@ -2,5 +2,6 @@
   "AP_SSID": "Potsberg",
   "AP_PWD": "qantasisbad",
   "IOTA_ENDPOINT": "cxc01.iota.cafe",
+  "IOTA_UUID": "77da0e0e-44cd-474e-bb24-7128372b61da",
   "IOTA_PORT": 7000
 }
